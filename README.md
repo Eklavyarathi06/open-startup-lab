@@ -1,3 +1,4 @@
+
 # OpenStartupLab 🚀
 
 ## Overview
@@ -128,3 +129,15 @@ Unlike existing environments, this combines:
 * Memory + delayed rewards
 
 This makes it a **mini AGI operations benchmark**.
+=======
+---
+title: Open Startup Lab
+emoji: 🏆
+colorFrom: red
+colorTo: gray
+sdk: docker
+pinned: false
+---
+
+Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+ 742e8b0e4f31fb4c6890b8d5e2c50549092169d9
