@@ -1,0 +1,19 @@
+name: open-startup-lab
+description: Multi-agent autonomous startup operations simulation with memory, tools, and dynamic events
+version: 1.0
+
+entrypoint: env.environment:StartupEnv
+
+observation_space: Observation
+action_space: Action
+reward_space: Reward
+
+tasks:
+  - name: email_management
+    difficulty: easy
+
+  - name: engineering_management
+    difficulty: medium
+
+  - name: startup_survival
+    difficulty: hard
