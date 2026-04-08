@@ -1,5 +1,8 @@
 import os
 import time
+from openenv import register_env
+from env.environment import StartupEnv
+register_env("startup_env", StartupEnv)
 from openai import OpenAI
 from env.environment import StartupEnv
 from env.models import Action

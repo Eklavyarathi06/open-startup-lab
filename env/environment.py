@@ -1,4 +1,5 @@
 import random
+from turtle import done
 random.seed(42)
 from env.models import *
 from env.generators import *
@@ -18,27 +19,19 @@ class StartupEnv:
         self.reset()
 
     def reset(self):
-        self.state_data = {
-            "emails": [generate_email(i) for i in range(3)],
-            "prs": [generate_pr(i) for i in range(2)],
-            "tasks": [generate_task(i) for i in range(3)],
-            "metrics": Metrics(
-                revenue=1000,
-                users=200,
-                satisfaction=0.6,
-                burn_rate=100
-            ),
-            "step": 0
-        }
-        return self.state()
+        self.state_data = self._init_state()
+        obs = self.state()
+        score, breakdown = compute_reward(self.state_data, None, self.memory)
+        reward_obj = Reward(score=score, breakdown=breakdown)
+        done = False
+
+        return obs.dict(), reward_obj.dict(), done, {}
 
     def state(self):
         return Observation(
             emails=self.state_data["emails"],
-            prs=self.state_data["prs"],
-            tasks=self.state_data["tasks"],
-            metrics=self.state_data["metrics"],
-            memory=self.memory.get_context()
+        prs=self.state_data["prs"],
+        metrics=self.state_data["metrics"]
         )
 
     def step(self, action: Action):
