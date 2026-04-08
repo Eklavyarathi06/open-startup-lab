@@ -1,4 +1,5 @@
 import os
+import time
 from openai import OpenAI
 from env.environment import StartupEnv
 from env.models import Action
@@ -63,6 +64,7 @@ while not done:
 
     # Step environment
     obs, reward, done, _ = env.step(action)
+    time.sleep(2)
 
     total_reward += reward.score
 
