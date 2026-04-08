@@ -73,3 +73,4 @@ while not done:
     step_id += 1
 
 print(f"[END] total_reward={total_reward}")
+time.sleep(60)
